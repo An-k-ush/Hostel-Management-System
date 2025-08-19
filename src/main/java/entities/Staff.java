@@ -1,4 +1,4 @@
-package Entities;
+package entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,16 +17,16 @@ public class Staff {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String phoneNo;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
     private String address;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 }

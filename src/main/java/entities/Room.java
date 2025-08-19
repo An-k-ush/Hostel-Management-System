@@ -1,4 +1,4 @@
-package Entities;
+package entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -19,17 +19,19 @@ public class Room {
     @Column(nullable = false, unique = true)
     private String roomNumber;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String type; // Single, Double, Triple
+    private RoomType type;
 
     @Column(nullable = false)
-    private int capacity;
+    private Integer capacity;
 
     @Column(nullable = false)
-    private int currentOccupancy;
+    private Integer currentOccupancy;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String status; // Available, Occupied, Maintenance
+    private RoomStatus status;
 
     @OneToMany(mappedBy = "room")
     List<Student> students;
