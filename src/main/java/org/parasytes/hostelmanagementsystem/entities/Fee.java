@@ -1,35 +1,33 @@
-package entities;
-
+package org.parasytes.hostelmanagementsystem.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
-
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Complaint {
+public class Fee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 96, nullable = false)
-    private String title;
-
-    @Column(nullable = false, length = 2000)
-    private String description;
+    @Column(nullable = false)
+    private BigDecimal amount;
 
     @Column(nullable = false)
-    private LocalDate date;
+    private LocalDate dueDate;
+
+    private LocalDate paidDate;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ComplaintStatus complaintStatus;
+    private FeeStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id", nullable = false)

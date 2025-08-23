@@ -1,4 +1,4 @@
-package entities;
+package org.parasytes.hostelmanagementsystem.entities;
 
 public enum FeeStatus {
     PAID,

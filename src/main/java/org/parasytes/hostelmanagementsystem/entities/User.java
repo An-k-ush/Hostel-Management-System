@@ -1,4 +1,4 @@
-package entities;
+package org.parasytes.hostelmanagementsystem.entities;
 
 
 import jakarta.persistence.*;
@@ -31,4 +31,13 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private Staff staff;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", role=" + role +
+                '}';
+    }
 }

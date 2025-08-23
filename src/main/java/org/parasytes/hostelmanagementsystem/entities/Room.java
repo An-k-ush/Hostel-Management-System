@@ -1,4 +1,4 @@
-package entities;
+package org.parasytes.hostelmanagementsystem.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
